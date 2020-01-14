@@ -17,7 +17,6 @@ class TodosController extends Controller
 
     public function store(Request $request)
     {
-
         $todo = new Todo();
 
         $todo->todo = $request->todo;
@@ -26,5 +25,15 @@ class TodosController extends Controller
 
         return redirect()->back();
 
+    }
+
+
+    public function delete($id)
+    {
+        $todo = Todo::find($id);
+
+        $todo->delete();
+
+        return redirect()->back();
     }
 }
