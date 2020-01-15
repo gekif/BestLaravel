@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/todos', [
-    'uses' => 'TodosController@index'
+    'uses' => 'TodosController@index',
+    'as' =>'todos'
 ]);
 
 Route::post('/create/todo', [
@@ -34,7 +35,7 @@ Route::get('/todo/update/{id}', [
     'as' => 'todo.update'
 ]);
 
-Route::post('/todo/save', [
+Route::post('/todo/save/{id}', [
     'uses' => 'TodosController@save',
     'as' => 'todo.save'
 ]);
