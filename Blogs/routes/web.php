@@ -39,6 +39,21 @@ Route::group([
         'as' => 'post.store'
     ]);
 
+    Route::get('/category/create', [
+        'uses' => 'CategoriesController@create',
+        'as' => 'category.create'
+    ]);
+
+    Route::post('/category/store', [
+        'uses' => 'CategoriesController@store',
+        'as' => 'category.store'
+    ]);
+
+    Route::get('/categories', [
+        'uses' => 'CategoriesController@index',
+        'as' => 'categories'
+    ]);
+
 });
 
 
