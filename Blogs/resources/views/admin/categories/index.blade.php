@@ -15,6 +15,17 @@
                 @foreach ($categories as $category)
                     <tr>
                         <td>{{ $category->name }}</td>
+
+                        <td><a href="{{ route('category.edit', ['id' => $category->id]) }}" class="btn btn-xs btn-info">
+                                Edit
+                            </a>
+                        </td>
+
+                        <td><a href="{{ route('category.delete', ['id' => $category->id]) }}" class="btn btn-xs btn-danger"
+                            onclick="return confirm('Are you sure you want to delete the item?')">
+                                Delete
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

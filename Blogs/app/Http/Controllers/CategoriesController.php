@@ -14,7 +14,10 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index')->with('categories', Category::all());
+        $categories = Category::orderBy('updated_at', 'desc')->get();
+
+        return view('admin.categories.index')
+            ->with('categories', $categories);
     }
 
     /**
@@ -45,10 +48,7 @@ class CategoriesController extends Controller
 
         $category->save();
 
-        return redirect()->back();
-
-
-
+        return redirect()->route('categories');
     }
 
     /**
@@ -70,8 +70,12 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('admin.categories.edit')
+            ->with('category', $category);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -82,8 +86,15 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $category->name = $request->name;
+
+        $category->save();
+
+        return redirect()->route('categories');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -93,6 +104,10 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        $category->delete();
+
+        return redirect()->back();
     }
 }
