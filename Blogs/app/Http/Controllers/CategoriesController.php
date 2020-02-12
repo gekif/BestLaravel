@@ -117,7 +117,6 @@ class CategoriesController extends Controller
 
         Session::flash('success', 'You successfully deleted the category');
 
-
         return redirect()->back();
     }
 }
