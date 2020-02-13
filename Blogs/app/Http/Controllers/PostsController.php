@@ -47,7 +47,7 @@ class PostsController extends Controller
 
         $featured = $request->featured;
 
-        $featured_new_name = time() . $featured->getClientOriginalName();
+        $featured_new_name = time() . '-' . $featured->getClientOriginalName();
 
         $featured->move('uploads/posts', $featured_new_name);
 
