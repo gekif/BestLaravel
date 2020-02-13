@@ -52,10 +52,11 @@ class PostsController extends Controller
         $featured->move('uploads/posts', $featured_new_name);
 
         Post::create([
-            'title' => $request->title,
-            'content' => $request->content,
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
             'featured' => 'uploads/posts/' . $featured_new_name,
-            'category_id' => $request->category_id
+            'category_id' => $request->input('category_id'),
+            'slug' => str_slug($request->input('title'))
         ]);
 
         Session::flash('success', 'Post created succefully.');
