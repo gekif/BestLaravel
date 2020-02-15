@@ -146,4 +146,20 @@ class PostsController extends Controller
 
         return redirect()->back();
     }
+
+
+    public function restore($id)
+    {
+        $post = Post::withTrashed()
+            ->where('id', $id)
+            ->first();
+
+        $post->restore();
+
+        Session::flash('success', 'Post restore successfully');
+
+        return redirect()->back();
+    }
+
+
 }

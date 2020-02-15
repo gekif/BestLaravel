@@ -27,7 +27,7 @@
                         <td>{{ $post->title }}</td>
                         <td>Edit</td>
                         <td>
-                            <a href="{{ route('post.delete', ['id' => $post->id]) }}"
+                            <a href="{{ route('post.restore', ['id' => $post->id]) }}"
                                class="btn btn-xs btn-success">Restore
                             </a>
                         </td>
