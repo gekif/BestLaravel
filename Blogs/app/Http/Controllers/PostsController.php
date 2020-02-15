@@ -116,6 +116,12 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $post->delete();
+
+        Session::flash('success', 'The post was just thrashed');
+
+        return redirect()->back();
     }
 }
