@@ -64,6 +64,11 @@ Route::group([
         'as' => 'posts.trashed'
     ]);
 
+    Route::get('/posts/kill/{id}', [
+        'uses' => 'PostsController@kill',
+        'as' => 'post.kill'
+    ]);
+
     Route::get('/categories', [
         'uses' => 'CategoriesController@index',
         'as' => 'categories'

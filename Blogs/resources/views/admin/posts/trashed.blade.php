@@ -32,7 +32,7 @@
                             </a>
                         </td>
                         <td>
-                            <a href="{{ route('post.delete', ['id' => $post->id]) }}"
+                            <a href="{{ route('post.kill', ['id' => $post->id]) }}"
                                class="btn btn-xs btn-danger">Delete
                             </a>
                         </td>
