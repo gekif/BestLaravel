@@ -9,7 +9,7 @@
                 <th>Image</th>
                 <th>Title</th>
                 <th>Edit</th>
-                <th>Delete</th>
+                <th>Trash</th>
                 </thead>
 
                 <tbody>
@@ -25,9 +25,11 @@
                             </td>
                             <td>{{ $post->title }}</td>
                             <td>Edit</td>
-                            <td><a href="{{ route('post.delete', ['id' => $post->id]) }}"
+                            <td>
+                                <a href="{{ route('post.delete', ['id' => $post->id]) }}"
                                    class="btn btn-danger">Trash
-                                </a></td>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
 

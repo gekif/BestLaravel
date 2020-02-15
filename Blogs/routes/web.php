@@ -59,6 +59,11 @@ Route::group([
         'as' => 'posts'
     ]);
 
+    Route::get('/posts/trashed', [
+        'uses' => 'PostsController@trashed',
+        'as' => 'posts.trashed'
+    ]);
+
     Route::get('/categories', [
         'uses' => 'CategoriesController@index',
         'as' => 'categories'
