@@ -74,6 +74,16 @@ Route::group([
         'as' => 'post.restore'
     ]);
 
+    Route::get('/posts/edit/{id}', [
+        'uses' => 'PostsController@edit',
+        'as' => 'post.edit'
+    ]);
+
+    Route::post('/posts/update/{id}', [
+        'uses' => 'PostsController@update',
+        'as' => 'post.update'
+    ]);
+
     Route::get('/categories', [
         'uses' => 'CategoriesController@index',
         'as' => 'categories'
