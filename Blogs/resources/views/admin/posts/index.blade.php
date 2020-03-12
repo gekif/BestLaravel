@@ -3,6 +3,11 @@
 @section('content')
 
     <div class="panel panel-default">
+
+        <div class="panel-heading">
+            Published posts
+        </div>
+
         <div class="panel-body">
             <table class="table table-hover">
                 <thead>
@@ -13,6 +18,8 @@
                 </thead>
 
                 <tbody>
+
+                @if ($posts->count() > 0)
 
                     @foreach ($posts as $post)
                         <tr>
@@ -37,6 +44,12 @@
                         </tr>
                     @endforeach
 
+                @else
+                    <tr>
+                        <th colspan="4" class="text-center">No published post</th>
+                    </tr>
+
+                @endif
                 </tbody>
 
             </table>
