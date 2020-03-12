@@ -44,16 +44,6 @@ Route::group([
         'as' => 'post.delete'
     ]);
 
-    Route::get('/category/create', [
-        'uses' => 'CategoriesController@create',
-        'as' => 'category.create'
-    ]);
-
-    Route::post('/category/store', [
-        'uses' => 'CategoriesController@store',
-        'as' => 'category.store'
-    ]);
-
     Route::get('/posts', [
         'uses' => 'PostsController@index',
         'as' => 'posts'
@@ -84,6 +74,8 @@ Route::group([
         'as' => 'post.update'
     ]);
 
+
+
     Route::get('/categories', [
         'uses' => 'CategoriesController@index',
         'as' => 'categories'
@@ -92,6 +84,16 @@ Route::group([
     Route::get('/category/edit/{id}', [
         'uses' => 'CategoriesController@edit',
         'as' => 'category.edit'
+    ]);
+
+    Route::get('/category/create', [
+        'uses' => 'CategoriesController@create',
+        'as' => 'category.create'
+    ]);
+
+    Route::post('/category/store', [
+        'uses' => 'CategoriesController@store',
+        'as' => 'category.store'
     ]);
 
     Route::get('/category/delete/{id}', [
@@ -103,6 +105,39 @@ Route::group([
         'uses' => 'CategoriesController@update',
         'as' => 'category.update'
     ]);
+
+
+    Route::get('/tag', [
+        'uses' => 'TagsController@index',
+        'as' => 'tags'
+    ]);
+
+    Route::get('/tag/create', [
+        'uses' => 'TagsController@create',
+        'as' => 'tag.create'
+    ]);
+
+    Route::post('/tag', [
+        'uses' => 'TagsController@store',
+        'as' => 'tag.store'
+    ]);
+
+    Route::get('/tag/edit/{id}', [
+        'uses' => 'TagsController@edit',
+        'as' => 'tag.edit'
+    ]);
+
+    Route::post('/tag/update/{id}', [
+        'uses' => 'TagsController@update',
+        'as' => 'tag.update'
+    ]);
+
+    Route::get('/tag/delete/{id}', [
+        'uses' => 'TagsController@destroy',
+        'as' => 'tag.delete'
+    ]);
+
+
 
 
 
