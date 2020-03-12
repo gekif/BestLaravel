@@ -102,7 +102,8 @@ class PostsController extends Controller
 
         return view('admin.posts.edit')
             ->with('post', $post)
-            ->with('categories', Category::all());
+            ->with('categories', Category::all())
+            ->with('tags', Tag::all());
     }
 
     /**
@@ -137,6 +138,8 @@ class PostsController extends Controller
         $post->category_id = $request->input('category_id');
 
         $post->save();
+
+        $post->tags()->sync($request->tags);
 
         Session::flash('success', 'Post updated successfully');
 
