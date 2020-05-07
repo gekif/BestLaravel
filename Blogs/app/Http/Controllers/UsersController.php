@@ -107,7 +107,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 
 

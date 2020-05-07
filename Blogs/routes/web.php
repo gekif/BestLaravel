@@ -168,6 +168,11 @@ Route::group([
         'as' => 'user.profile'
     ]);
 
+    Route::get('/user/delete/{id}', [
+        'uses' => 'ProfilesController@destroy',
+        'as' => 'user.delete'
+    ]);
+
     Route::post('/user/profile/update', [
         'user' => 'ProfilesController@update',
         'as' => 'user.profile.update'
