@@ -87,7 +87,7 @@
                     <div class="col-lg-4">
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="{{ route('home') }}">Home</a>
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
                         </li>
 
                         <li class="list-group-item">
