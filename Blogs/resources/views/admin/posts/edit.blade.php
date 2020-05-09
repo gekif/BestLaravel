@@ -56,7 +56,7 @@
 
                  <div class="form-group">
                      <label for="content">Content</label>
-                     <textarea name="content" id="content" cols="5" rows="5" class="form-control">{{ $post->content }}</textarea>
+                     <textarea name="content" id="summernote" cols="5" rows="5" class="form-control">{{ $post->content }}</textarea>
                  </div>
 
                  <div class="form-group">
@@ -70,5 +70,20 @@
 
 
      </div>
+
+@stop
+
+@section('styles')
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+@stop
+
+@section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#summernote').summernote();
+        });
+    </script>
 
 @stop
