@@ -15,6 +15,19 @@
 //    return view('welcome');
 //});
 
+use Illuminate\Support\Facades\Session;
+use Spatie\Newsletter\NewsletterFacade as Newsletter;
+
+Route::post('/subscribe', function () {
+    $email = request('email');
+
+    Newsletter::subscribe($email);
+
+    Session::flash('subscribed', 'Succesfully subscribed.');
+
+    return redirect()->back();
+});
+
 Route::get('/', [
     'uses' => 'FrontendController@index',
     'as' => 'index'
